@@ -12,29 +12,35 @@ const client = axios.create({
 
 //const tokenKey = "token";
 
-export const register = (user: any, setCurrentUser: any) => {
+export const register = (user: any, navigate: any) => {
   return apiClient.post("/register/", user).then(() => {
     apiClient.post("/logintest/", user).then(() => {
-      setCurrentUser(true);
+      navigate("/journals");
     });
   });
 };
 
-export const login = (loginDetails: any, setCurrentUser: any) => {
+export const login = (loginDetails: any, navigate: any) => {
   return apiClient.post("/logintest/", loginDetails).then(() => {
-    setCurrentUser(true);
+    navigate("/journals");
   });
   //localStorage.setItem(tokenKey, response.data.token);
   //localStorage.setItem("user", JSON.stringify(response.data));
 };
 
-export const getUser = (setLoggedIn: any) => {
+export const logout = (navigate: any) => {
+  return apiClient.post("/logout/").then(() => {
+    navigate("/logout");
+  });
+};
+
+export const getUser = (navigate: any) => {
   return apiClient
     .get("/user/")
     .then(() => {
-      setLoggedIn(true);
+      navigate("/journals");
     })
     .catch(() => {
-      setLoggedIn(false);
+      navigate("/");
     });
 };

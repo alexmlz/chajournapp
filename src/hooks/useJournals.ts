@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import journalService, { Journal } from "../services/journal-service";
 import { CanceledError } from "../services/api-client";
+import { useNavigate } from "react-router-dom";
 
 const useJournals = () => {
   const [journals, setJournals] = useState<Journal[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
     const { request, cancel } = journalService.getAll<Journal>();
@@ -17,6 +18,8 @@ const useJournals = () => {
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
+        if (err.request.status) navigate("/");
+
         setError(err.message);
         setLoading(false);
       });

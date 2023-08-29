@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { login } from "../services/user-service.js";
 import FormInputs from "../common/FormInputs.js";
+import { useNavigate } from "react-router-dom";
 function Login({ setCurrentUser }: any) {
   const [loginUser, setLoginUser] = useState({
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
   const [errors, setErrors] = useState(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      login(loginUser, setCurrentUser);
+      login(loginUser, navigate);
       //setUser(response.data);
       // setCurrentUser(true);
     } catch (ex: any) {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { register } from "../services/user-service.js";
 import FormInputs from "../common/FormInputs.js";
+import { useNavigate } from "react-router-dom";
 function Register({ setCurrentUser }: any) {
   const [newUser, setNewUser] = useState({
     username: "",
@@ -8,11 +9,11 @@ function Register({ setCurrentUser }: any) {
     password: "",
   });
   const [errors, setErrors] = useState(null);
-
+  const navigate = useNavigate();
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      register(newUser, setCurrentUser);
+      register(newUser, navigate);
       //setUser(response.data);
       //setCurrentUser(true);
     } catch (ex: any) {
