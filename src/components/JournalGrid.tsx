@@ -7,14 +7,6 @@ import { useNavigate } from "react-router-dom";
 const JournalGrid = () => {
   const { journals, error, isLoading, setJournals, setError } = useJournals();
   const navigate = useNavigate();
-  const handleDeleteItem = (journal: Journal) => {
-    const originalJournals = [...journals];
-    setJournals(journals.filter((j) => j.id !== journal.id));
-    journalService.delete(journal.id).catch((err) => {
-      setError(err.message);
-      setJournals(originalJournals);
-    });
-  };
 
   return (
     <>
@@ -31,11 +23,7 @@ const JournalGrid = () => {
 
           <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10}>
             {journals.map((item) => (
-              <JournalCard
-                onDeleteJournal={handleDeleteItem}
-                key={item.id}
-                journal={item}
-              />
+              <JournalCard key={item.id} journal={item} />
             ))}
           </SimpleGrid>
         </>

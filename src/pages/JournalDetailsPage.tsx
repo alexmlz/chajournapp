@@ -2,9 +2,11 @@ import { useState } from "react";
 import useJournal from "../hooks/useJournal";
 import { Button, Heading, Input, Textarea } from "@chakra-ui/react";
 import journalService, { Journal } from "../services/journal-service";
+import { useNavigate } from "react-router-dom";
 
 const JournalDetailPage = () => {
   const { journal } = useJournal();
+  const navigate = useNavigate();
 
   const [newJournalValue, setNewJournalValue] = useState(journal.content);
   const [newSubjectValue, setNewSubjectValue] = useState(journal.subject);
@@ -28,6 +30,12 @@ const JournalDetailPage = () => {
       });
   };
 
+  const handleDeleteItem = (journal: Journal) => {
+    journalService.delete(journal.id).then(() => {
+      navigate("/journals");
+    });
+  };
+
   let handleInputChange = (e: any) => {
     let inputValue = e.target.value;
     setNewJournalValue(inputValue);
@@ -38,25 +46,28 @@ const JournalDetailPage = () => {
   };
   return (
     <>
+      <Button onClick={() => setEdit(!edit)}>Edit</Button>
+      <Button onClick={() => handleUpdateItem()}>Save</Button>
+      <Button onClick={() => handleDeleteItem(journal)} color="red">
+        Delete
+      </Button>
       <Heading fontSize="2xl">
         <Textarea
           maxLength={50}
-          isReadOnly={edit}
+          isDisabled={edit}
           defaultValue={defaultSubjectValue}
           value={newSubjectValue}
           onChange={(e) => handleInputChangeSub(e)}
         ></Textarea>
       </Heading>
       <Textarea
-        isReadOnly={edit}
+        height={window.innerHeight - 300}
+        isDisabled={edit}
         defaultValue={defaultValue}
         value={newJournalValue}
         onChange={handleInputChange}
         size={"lg"}
       ></Textarea>
-      <Button onClick={() => setEdit(!edit)}>Edit</Button>
-
-      <Button onClick={() => handleUpdateItem()}>Save</Button>
     </>
   );
 };

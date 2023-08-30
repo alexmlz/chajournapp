@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 
 interface Props {
   journal: Journal;
-  onDeleteJournal: (journal: Journal) => void;
 }
 
-const JournalCard = ({ journal, onDeleteJournal }: Props) => {
+const JournalCard = ({ journal }: Props) => {
   return (
-    <Card borderRadius={10} overflow="hidden">
+    <Card maxHeight={222} borderRadius={10} overflow="hidden">
       <CardBody>
         <Heading fontSize="2xl">
           {/* {journal.subject} */}
@@ -17,9 +16,6 @@ const JournalCard = ({ journal, onDeleteJournal }: Props) => {
         </Heading>
 
         <Text>{journal.content}</Text>
-        <Button onClick={() => onDeleteJournal(journal)} color="red">
-          Delete
-        </Button>
       </CardBody>
     </Card>
   );
