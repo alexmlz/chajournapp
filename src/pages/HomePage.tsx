@@ -1,6 +1,17 @@
 import { useState } from "react";
 import useUsers from "../hooks/useUsers";
-import { Box, Button, Grid, GridItem, Show } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  GridItem,
+  HStack,
+  Show,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import JournalGrid from "../components/JournalGrid";
 import Login from "../components/Login";
 import Register from "../components/Register";
@@ -11,20 +22,28 @@ const HomePage = () => {
   useUsers();
   const RegisterLogin = () => {
     return (
-      <Box>
+      <Container>
         {login ? (
           <>
+            <Text>If you do not have an account yet, Textlease register!</Text>
+            <HStack justifyContent={"center"}>
+              <Button colorScheme="blue" onClick={() => setLogin(false)}>
+                Register
+              </Button>
+            </HStack>
             <Login />
-            <p>If you do not have an account yet, please register!</p>
-            <Button onClick={() => setLogin(false)}>Register</Button>
           </>
         ) : (
           <>
+            <HStack justifyContent={"center"}>
+              <Button colorScheme="blue" onClick={() => setLogin(true)}>
+                Login
+              </Button>
+            </HStack>
             <Register />
-            <Button onClick={() => setLogin(true)}>Login</Button>
           </>
         )}
-      </Box>
+      </Container>
     );
   };
 

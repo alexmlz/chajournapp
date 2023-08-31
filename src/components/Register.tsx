@@ -2,6 +2,7 @@ import { useState } from "react";
 import { register } from "../services/user-service.js";
 import FormInputs from "../common/FormInputs.js";
 import { useNavigate } from "react-router-dom";
+import { Box, Button, Text, FormControl, HStack } from "@chakra-ui/react";
 function Register({ setCurrentUser }: any) {
   const [newUser, setNewUser] = useState({
     username: "",
@@ -9,11 +10,13 @@ function Register({ setCurrentUser }: any) {
     password: "",
   });
   const [errors, setErrors] = useState(null);
+  const [isError, setIsError] = useState(false);
+
   const navigate = useNavigate();
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      register(newUser, navigate);
+      register(newUser, navigate, setErrors, setIsError);
       //setUser(response.data);
       //setCurrentUser(true);
     } catch (ex: any) {
@@ -24,13 +27,24 @@ function Register({ setCurrentUser }: any) {
   };
 
   return (
-    <div className="register">
-      <h1>Register</h1>
+    <>
       <form onSubmit={handleSubmit}>
-        <FormInputs input={newUser} setInput={setNewUser} errors={errors} />
-        <input type="submit" value="submit" />
+        <FormControl>
+          <FormInputs input={newUser} setInput={setNewUser} errors={errors} />
+
+          <Button colorScheme="blue" type="submit" width={"full"}>
+            Send
+          </Button>
+          {isError && (
+            <HStack>
+              <Text fontSize="2xl" color={"red"}>
+                {errors}
+              </Text>
+            </HStack>
+          )}
+        </FormControl>
       </form>
-    </div>
+    </>
   );
 }
 

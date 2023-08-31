@@ -1,6 +1,13 @@
 import { useState } from "react";
 import useJournal from "../hooks/useJournal";
-import { Button, Heading, Input, Textarea } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Heading,
+  Input,
+  Stack,
+  Textarea,
+} from "@chakra-ui/react";
 import journalService, { Journal } from "../services/journal-service";
 import { useNavigate } from "react-router-dom";
 
@@ -46,11 +53,17 @@ const JournalDetailPage = () => {
   };
   return (
     <>
-      <Button onClick={() => setEdit(!edit)}>Edit</Button>
-      <Button onClick={() => handleUpdateItem()}>Save</Button>
-      <Button onClick={() => handleDeleteItem(journal)} color="red">
-        Delete
-      </Button>
+      <HStack justifyContent={"flex-end"}>
+        <Button colorScheme="blue" onClick={() => setEdit(!edit)}>
+          Edit
+        </Button>
+        <Button colorScheme="blue" onClick={() => handleUpdateItem()}>
+          Save
+        </Button>
+        <Button colorScheme="red" onClick={() => handleDeleteItem(journal)}>
+          Delete
+        </Button>
+      </HStack>
       <Heading fontSize="2xl">
         <Textarea
           maxLength={50}
@@ -68,6 +81,11 @@ const JournalDetailPage = () => {
         onChange={handleInputChange}
         size={"lg"}
       ></Textarea>
+      <HStack justifyContent={"flex-end"}>
+        <Button colorScheme="blue" onClick={() => navigate("/")}>
+          Cancel
+        </Button>
+      </HStack>
     </>
   );
 };

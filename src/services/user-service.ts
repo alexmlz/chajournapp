@@ -12,18 +12,40 @@ const client = axios.create({
 
 //const tokenKey = "token";
 
-export const register = (user: any, navigate: any) => {
-  return apiClient.post("/register/", user).then(() => {
-    apiClient.post("/logintest/", user).then(() => {
-      navigate("/journals");
+export const register = (
+  user: any,
+  navigate: any,
+  setErrors: any,
+  setIsError: any
+) => {
+  return apiClient
+    .post("/register/", user)
+    .then(() => {
+      apiClient.post("/logintest/", user).then(() => {
+        navigate("/journals");
+      });
+    })
+    .catch((err) => {
+      setIsError(true);
+      setErrors(err.request.response);
     });
-  });
 };
 
-export const login = (loginDetails: any, navigate: any) => {
-  return apiClient.post("/logintest/", loginDetails).then(() => {
-    navigate("/journals");
-  });
+export const login = (
+  loginDetails: any,
+  navigate: any,
+  setErrors: any,
+  setIsError: any
+) => {
+  return apiClient
+    .post("/logintest/", loginDetails)
+    .then(() => {
+      navigate("/journals");
+    })
+    .catch((err) => {
+      setIsError(true);
+      setErrors(err.request.response);
+    });
   //localStorage.setItem(tokenKey, response.data.token);
   //localStorage.setItem("user", JSON.stringify(response.data));
 };

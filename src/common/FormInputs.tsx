@@ -1,3 +1,13 @@
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
+import { useState } from "react";
+
 function Error({ errors, inputType }: any) {
   if (errors) {
     return <div className="error">{errors[inputType]}</div>;
@@ -18,20 +28,46 @@ function Error({ errors, inputType }: any) {
 } */
 
 function FormInput({ input, setInput, inputType, errors }: any) {
+  const [show, setShow] = useState(false);
+
   const handleChange = (newValue: string) => {
     setInput({
       ...input,
       [inputType]: newValue,
     });
   };
+
+  const handleClick = () => setShow(!show);
   return (
     <>
-      <h2>{inputType}</h2>
-      <input
-        value={input[inputType]}
-        onChange={(e) => handleChange(e.target.value)}
-      />
-      <Error errors={errors} inputType={inputType} />
+      {inputType === "password" ? (
+        <FormControl size="md">
+          <FormLabel>{inputType}</FormLabel>
+          <InputGroup>
+            <Input
+              type={show ? "text" : "password"}
+              value={input[inputType]}
+              onChange={(e) => handleChange(e.target.value)}
+            />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={handleClick}>
+                {show ? "Hide" : "Show"}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+          <Error errors={errors} inputType={inputType} />
+        </FormControl>
+      ) : (
+        <FormControl size="md">
+          <FormLabel>{inputType}</FormLabel>
+
+          <Input
+            type={inputType}
+            value={input[inputType]}
+            onChange={(e) => handleChange(e.target.value)}
+          />
+        </FormControl>
+      )}
     </>
   );
 }

@@ -12,7 +12,9 @@ const NavBar = () => {
     <HStack justifyContent="space-between" padding="10px">
       <Image onClick={() => navigate("/")} src={logo} boxSize="60px" />
       <ColorModeSwitch />
-      <Button onClick={() => onLogout()}>Logout</Button>
+      <Button onClick={() => onLogout()} colorScheme={"blue"}>
+        Logout
+      </Button>
     </HStack>
   );
 };
