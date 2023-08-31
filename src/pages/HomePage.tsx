@@ -25,7 +25,7 @@ const HomePage = () => {
       <Container>
         {login ? (
           <>
-            <Text>If you do not have an account yet, Textlease register!</Text>
+            <Text>If you do not have an account yet, Please register!</Text>
             <HStack justifyContent={"center"}>
               <Button colorScheme="blue" onClick={() => setLogin(false)}>
                 Register
