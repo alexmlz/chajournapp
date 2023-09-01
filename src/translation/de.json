@@ -8,10 +8,12 @@
     "subjectLabelText": "Betreff",
     "contentLabelText": "Inhalt",
     "registerBtnText": "Registrieren",
-    "loginBtnText": "Einloggen",
+    "loginBtnText": "Anmelden",
     "sendBtnText": "Senden",
     "showBtnText": "Anzeigen",
     "hideBtnText": "Verbergen",
-    "registerText": "Wenn du noch keinen Account hast, können Sie einen Erstellen"
-
+    "registerText": "Wenn du noch keinen Account hast, kannst du gerne einen erstellen",
+    "loggedOutTex": "Du bist nicht mehr angemeldet",
+    "logoutBtnText" : "Abmelden",
+    "lognBtnText": "Anmelden"
 }

@@ -12,5 +12,9 @@
     "sendBtnText": "Send",
     "showBtnText": "Show",
     "hideBtnText": "Hide",
-    "registerText": "If you do not have an account yet, Please register!"
+    "registerText": "If you do not have an account yet, Please register!",
+    "loggedOutTex": "You are logged out",
+    "logoutBtnText" : "Logout",
+    "lognBtnText": "Login"
+
 }

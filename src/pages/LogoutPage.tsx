@@ -1,4 +1,5 @@
 import { Button, Container, Text } from "@chakra-ui/react";
+import { FormattedMessage } from "react-intl";
 import { useNavigate } from "react-router-dom";
 
 const LogoutPage = () => {
@@ -6,9 +7,14 @@ const LogoutPage = () => {
   return (
     <>
       <Container centerContent>
-        <Text>You are logged out</Text>
+        <Text>
+          <FormattedMessage id="loggedOutTex"></FormattedMessage>
+        </Text>
         <Button colorScheme="blue" onClick={() => navigate("/")}>
-          Login
+          <FormattedMessage
+            id="loginBtnText"
+            defaultMessage="Anmelden"
+          ></FormattedMessage>
         </Button>
       </Container>
     </>
