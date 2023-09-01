@@ -1,0 +1,16 @@
+{
+    "addBtnText" : "Add",
+    "switchDarkText" : "Dark Mode",
+    "saveBtnText" : "Save",
+    "cancelBtnText" : "Cancel",
+    "editBtnText": "Edit",
+    "deleteBtnText": "Delete",
+    "subjectLabelText": "Subject",
+    "contentLabelText": "Content",
+    "registerBtnText": "Register",
+    "loginBtnText": "Login",
+    "sendBtnText": "Send",
+    "showBtnText": "Show",
+    "hideBtnText": "Hide",
+    "registerText": "If you do not have an account yet, Please register!"
+}

@@ -1,34 +1,27 @@
 import { useState } from "react";
 import useUsers from "../hooks/useUsers";
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  GridItem,
-  HStack,
-  Show,
-  Stack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import JournalGrid from "../components/JournalGrid";
+import { Box, Button, Container, HStack, Text } from "@chakra-ui/react";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {
   const [login, setLogin] = useState(true);
-  //const [currentUser, setCurrentUser] = useState();
   useUsers();
   const RegisterLogin = () => {
     return (
       <Container>
         {login ? (
           <>
-            <Text>If you do not have an account yet, Please register!</Text>
+            <Text>
+              <FormattedMessage id="registerText"></FormattedMessage>
+            </Text>
             <HStack justifyContent={"center"}>
               <Button colorScheme="blue" onClick={() => setLogin(false)}>
-                Register
+                <FormattedMessage
+                  id="registerBtnText"
+                  defaultMessage="Registrieren"
+                ></FormattedMessage>
               </Button>
             </HStack>
             <Login />
@@ -37,7 +30,10 @@ const HomePage = () => {
           <>
             <HStack justifyContent={"center"}>
               <Button colorScheme="blue" onClick={() => setLogin(true)}>
-                Login
+                <FormattedMessage
+                  id="loginBtnText"
+                  defaultMessage="Einloggen"
+                ></FormattedMessage>
               </Button>
             </HStack>
             <Register />

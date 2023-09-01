@@ -2,13 +2,8 @@ import { useState } from "react";
 import { login } from "../services/user-service.js";
 import FormInputs from "../common/FormInputs.js";
 import { useNavigate } from "react-router-dom";
-import {
-  Button,
-  FormControl,
-  FormHelperText,
-  HStack,
-  Text,
-} from "@chakra-ui/react";
+import { Button, FormControl, HStack, Text } from "@chakra-ui/react";
+import { FormattedMessage } from "react-intl";
 function Login({ setCurrentUser }: any) {
   const [loginUser, setLoginUser] = useState({
     username: "",
@@ -40,7 +35,10 @@ function Login({ setCurrentUser }: any) {
             errors={errors}
           />
           <Button colorScheme="blue" type="submit" width={"full"}>
-            Send
+            <FormattedMessage
+              id="sendBtnText"
+              defaultMessage="Senden"
+            ></FormattedMessage>
           </Button>
           {isError && (
             <HStack>

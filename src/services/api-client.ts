@@ -14,11 +14,6 @@ if (domain === "localhost" || domain === "127.0.0.1") {
 
 export default axios.create({
   baseURL: baseURL,
-  /*   headers: {
-    xsrfCookieName: "csrftoken",
-    xsrfHeaderName: "X-CSRFToken",
-    withCredentials: true,
-  }, */
 });
 
 export { CanceledError };

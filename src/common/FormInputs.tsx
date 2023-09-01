@@ -7,6 +7,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 function Error({ errors, inputType }: any) {
   if (errors) {
@@ -14,18 +15,6 @@ function Error({ errors, inputType }: any) {
   }
   return null;
 }
-
-/* function RemainingErrors({ errors, input }: any) {
-  if (errors) {
-    return Object.keys(errors).map((type) => {
-      if (!(type in input)) {
-        return <Error errors={errors} inputType={type} />;
-      }
-      return null;
-    });
-  }
-  return null;
-} */
 
 function FormInput({ input, setInput, inputType, errors }: any) {
   const [show, setShow] = useState(false);
@@ -51,7 +40,11 @@ function FormInput({ input, setInput, inputType, errors }: any) {
             />
             <InputRightElement width="4.5rem">
               <Button h="1.75rem" size="sm" onClick={handleClick}>
-                {show ? "Hide" : "Show"}
+                {show ? (
+                  <FormattedMessage id="showBtnText"></FormattedMessage>
+                ) : (
+                  <FormattedMessage id="hideBtnText"></FormattedMessage>
+                )}
               </Button>
             </InputRightElement>
           </InputGroup>

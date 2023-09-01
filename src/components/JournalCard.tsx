@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardBody, Heading, Text } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 import { Journal } from "../services/journal-service";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,6 @@ const JournalCard = ({ journal }: Props) => {
     <Card maxHeight={222} borderRadius={10} overflow="hidden">
       <CardBody>
         <Heading fontSize="2xl">
-          {/* {journal.subject} */}
           <Link to={`/journals/${journal.id}`}>{journal.subject}</Link>
         </Heading>
 

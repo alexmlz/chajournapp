@@ -1,15 +1,9 @@
 import { useState } from "react";
 import useJournal from "../hooks/useJournal";
-import {
-  Button,
-  HStack,
-  Heading,
-  Input,
-  Stack,
-  Textarea,
-} from "@chakra-ui/react";
+import { Button, HStack, Heading, Textarea } from "@chakra-ui/react";
 import journalService, { Journal } from "../services/journal-service";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 const JournalDetailPage = () => {
   const { journal } = useJournal();
@@ -54,14 +48,11 @@ const JournalDetailPage = () => {
   return (
     <>
       <HStack justifyContent={"flex-end"}>
-        <Button colorScheme="blue" onClick={() => setEdit(!edit)}>
-          Edit
-        </Button>
-        <Button colorScheme="blue" onClick={() => handleUpdateItem()}>
-          Save
-        </Button>
-        <Button colorScheme="red" onClick={() => handleDeleteItem(journal)}>
-          Delete
+        <Button colorScheme="blue" onClick={() => navigate("/")}>
+          <FormattedMessage
+            id="cancelBtnText"
+            defaultMessage="Abbrechen"
+          ></FormattedMessage>
         </Button>
       </HStack>
       <Heading fontSize="2xl">
@@ -81,9 +72,25 @@ const JournalDetailPage = () => {
         onChange={handleInputChange}
         size={"lg"}
       ></Textarea>
+
       <HStack justifyContent={"flex-end"}>
-        <Button colorScheme="blue" onClick={() => navigate("/")}>
-          Cancel
+        <Button colorScheme="red" onClick={() => handleDeleteItem(journal)}>
+          <FormattedMessage
+            id="deleteBtnText"
+            defaultMessage="Löschen"
+          ></FormattedMessage>
+        </Button>
+        <Button colorScheme="blue" onClick={() => setEdit(!edit)}>
+          <FormattedMessage
+            id="editBtnText"
+            defaultMessage="Ändern"
+          ></FormattedMessage>
+        </Button>
+        <Button colorScheme="blue" onClick={() => handleUpdateItem()}>
+          <FormattedMessage
+            id="saveBtnText"
+            defaultMessage="Speichern"
+          ></FormattedMessage>
         </Button>
       </HStack>
     </>

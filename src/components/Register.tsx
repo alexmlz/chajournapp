@@ -2,7 +2,8 @@ import { useState } from "react";
 import { register } from "../services/user-service.js";
 import FormInputs from "../common/FormInputs.js";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Text, FormControl, HStack } from "@chakra-ui/react";
+import { Button, Text, FormControl, HStack } from "@chakra-ui/react";
+import { FormattedMessage } from "react-intl";
 function Register({ setCurrentUser }: any) {
   const [newUser, setNewUser] = useState({
     username: "",
@@ -17,8 +18,6 @@ function Register({ setCurrentUser }: any) {
     e.preventDefault();
     try {
       register(newUser, navigate, setErrors, setIsError);
-      //setUser(response.data);
-      //setCurrentUser(true);
     } catch (ex: any) {
       if (ex.response && ex.response.status === 400) {
         setErrors(ex.response.data);
@@ -33,7 +32,10 @@ function Register({ setCurrentUser }: any) {
           <FormInputs input={newUser} setInput={setNewUser} errors={errors} />
 
           <Button colorScheme="blue" type="submit" width={"full"}>
-            Send
+            <FormattedMessage
+              id="sendBtnText"
+              defaultMessage="Senden"
+            ></FormattedMessage>
           </Button>
           {isError && (
             <HStack>

@@ -11,9 +11,6 @@ const JournalPage = () => {
         //not sure if we need master detail for this one
       }}
     >
-      {/*           <Show above="lg">
-      <GridItem area="aside">Aside</GridItem>
-    </Show> */}
       <GridItem area="main">
         <JournalGrid></JournalGrid>
       </GridItem>

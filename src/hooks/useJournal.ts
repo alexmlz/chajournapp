@@ -7,8 +7,7 @@ const useJournal = () => {
   let obj = {} as Journal;
   const [journal, setJournal] = useState(obj);
   const { id } = useParams();
-  /*   let idInt: number;
-  idInt = Number(id); */
+
   useEffect(() => {
     journalService.get(id!).then((res) => {
       setJournal(res.data);

@@ -1,4 +1,5 @@
 import { HStack, Switch, Text, useColorMode } from "@chakra-ui/react";
+import { FormattedMessage } from "react-intl";
 
 const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -10,7 +11,11 @@ const ColorModeSwitch = () => {
         isChecked={colorMode === "dark"}
         onChange={toggleColorMode}
       />
-      <Text>Dark Mode</Text>
+
+      <FormattedMessage
+        id="switchDarkText"
+        defaultMessage="Dunkel Modus"
+      ></FormattedMessage>
     </HStack>
   );
 };

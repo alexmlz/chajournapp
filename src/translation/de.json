@@ -1,0 +1,17 @@
+{
+    "addBtnText" : "Hinzufügen",
+    "switchDarkText" : "Dunkel Modus",
+    "saveBtnText" : "Speichern",
+    "cancelBtnText" : "Abbrechen",
+    "editBtnText": "Ändern",
+    "deleteBtnText": "Löschen",
+    "subjectLabelText": "Betreff",
+    "contentLabelText": "Inhalt",
+    "registerBtnText": "Registrieren",
+    "loginBtnText": "Einloggen",
+    "sendBtnText": "Senden",
+    "showBtnText": "Anzeigen",
+    "hideBtnText": "Verbergen",
+    "registerText": "Wenn du noch keinen Account hast, können Sie einen Erstellen"
+
+}
