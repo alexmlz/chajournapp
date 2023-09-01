@@ -1,8 +1,16 @@
-import { Button, HStack, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Image,
+  Spacer,
+  Stack,
+} from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { logout } from "../services/user-service";
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 const NavBar = () => {
   const navigate = useNavigate();
@@ -10,16 +18,26 @@ const NavBar = () => {
     logout(navigate);
   };
   return (
-    <HStack justifyContent="space-between" padding="10px">
-      <Image onClick={() => navigate("/")} src={logo} boxSize="60px" />
-      <ColorModeSwitch />
-      <Button onClick={() => onLogout()} colorScheme={"blue"}>
-        <FormattedMessage
-          id="logoutBtnText"
-          defaultMessage="Abmelden"
-        ></FormattedMessage>
-      </Button>
-    </HStack>
+    <>
+      <HStack>
+        <Image
+          borderRadius="full"
+          onClick={() => navigate("/")}
+          src={logo}
+          boxSize="60px"
+        />
+        <NavLink to={"/journals"}>Journal</NavLink>
+        <Spacer />
+
+        <ColorModeSwitch />
+        <Button onClick={() => onLogout()} colorScheme={"blue"}>
+          <FormattedMessage
+            id="logoutBtnText"
+            defaultMessage="Abmelden"
+          ></FormattedMessage>
+        </Button>
+      </HStack>
+    </>
   );
 };
 
