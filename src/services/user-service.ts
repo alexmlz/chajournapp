@@ -52,3 +52,9 @@ export const getUser = (navigate: any) => {
       navigate("/");
     });
 };
+
+export const get = (setUsers: any) => {
+  return apiClient.get("/useradmin/").then((res) => {
+    setUsers(res.data);
+  });
+};

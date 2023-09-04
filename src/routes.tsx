@@ -6,6 +6,7 @@ import ErrorPage from "./pages/ErrorPage";
 import AddJournalPage from "./pages/AddJournalPage";
 import LogoutPage from "./pages/LogoutPage";
 import JournalPage from "./pages/JournalPage";
+import AdminPage from "./pages/AdminPage";
 //import ListGroup from "./ListGroup";
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/journals/:id", element: <JournalDetailPage /> },
       { path: "/add/", element: <AddJournalPage /> },
       { path: "/logout/", element: <LogoutPage /> },
+      { path: "/fische/", element: <AdminPage /> },
     ],
   },
 ]);

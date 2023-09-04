@@ -12,7 +12,8 @@
     "sendBtnText": "Senden",
     "showBtnText": "Anzeigen",
     "hideBtnText": "Verbergen",
-    "registerText": "Wenn du noch keinen Account hast, kannst du gerne einen erstellen",
+    "registerText": "Wenn du noch keinen Account hast, kannst du gerne einen erstellen. Es ist noch kostenlos",
+    "registerFreeText" : "Registrieren ist noch kostenlos",
     "loggedOutTex": "Du bist nicht mehr angemeldet",
     "logoutBtnText" : "Abmelden",
     "lognBtnText": "Anmelden"

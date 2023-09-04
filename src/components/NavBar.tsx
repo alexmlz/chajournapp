@@ -1,16 +1,8 @@
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  Image,
-  Spacer,
-  Stack,
-} from "@chakra-ui/react";
+import { Button, HStack, Image, Spacer } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { logout } from "../services/user-service";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 const NavBar = () => {
   const navigate = useNavigate();

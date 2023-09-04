@@ -13,7 +13,7 @@ const HomePage = () => {
       <Container>
         {login ? (
           <>
-            <Text>
+            <Text align={"center"}>
               <FormattedMessage id="registerText"></FormattedMessage>
             </Text>
             <HStack justifyContent={"center"}>
@@ -28,6 +28,9 @@ const HomePage = () => {
           </>
         ) : (
           <>
+            <Text align={"center"}>
+              <FormattedMessage id="registerFreeText"></FormattedMessage>
+            </Text>
             <HStack justifyContent={"center"}>
               <Button colorScheme="blue" onClick={() => setLogin(true)}>
                 <FormattedMessage
