@@ -10,6 +10,7 @@ const JournalCard = ({ journal }: Props) => {
   return (
     <Card maxHeight={222} borderRadius={10} overflow="hidden">
       <CardBody>
+        <Text>{new Date(journal.cre_date).toLocaleString()}</Text>
         <Heading fontSize="2xl">
           <Link to={`/journals/${journal.id}`}>{journal.subject}</Link>
         </Heading>

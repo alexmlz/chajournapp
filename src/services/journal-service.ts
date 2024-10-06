@@ -5,7 +5,7 @@ export interface Journal {
   id: number;
   content: string;
   subject: string;
-  cre_date?: Date;
+  cre_date: string;
 }
 
 export default create("journals/", "journal/");
