@@ -16,6 +16,8 @@
     "registerFreeText" : "Register for free, for now",
     "loggedOutTex": "You are logged out",
     "logoutBtnText" : "Logout",
-    "lognBtnText": "Login"
+    "lognBtnText": "Login",
+    "questionBtnText" : "Show Question"
+
 
 }

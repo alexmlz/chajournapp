@@ -1,7 +1,8 @@
 import { useState } from "react";
 import useJournal from "../hooks/useJournal";
-import { Button, HStack, Heading, Textarea } from "@chakra-ui/react";
+import { Button, HStack, Spacer , Heading, Textarea, Text } from "@chakra-ui/react";
 import journalService, { Journal } from "../services/journal-service";
+import questionService from "../services/question-service";
 import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
@@ -11,7 +12,7 @@ const JournalDetailPage = () => {
 
   const [newJournalValue, setNewJournalValue] = useState(journal.content);
   const [newSubjectValue, setNewSubjectValue] = useState(journal.subject);
-
+  const [question, setQuestion] = useState("");
   const [edit, setEdit] = useState(true);
   let defaultValue = journal.content;
   let defaultSubjectValue = journal.subject;
@@ -37,6 +38,12 @@ const JournalDetailPage = () => {
     });
   };
 
+  const handleQuestionBtnPress = () => {
+    questionService.getSingle().then((res) => {
+      setQuestion(res.data.question)
+    });
+  };
+
   let handleInputChange = (e: any) => {
     let inputValue = e.target.value;
     setNewJournalValue(inputValue);
@@ -47,7 +54,15 @@ const JournalDetailPage = () => {
   };
   return (
     <>
-      <HStack justifyContent={"flex-end"}>
+      <HStack>
+      <Button colorScheme="blue" onClick={() =>  handleQuestionBtnPress()}>
+          <FormattedMessage
+            id="questionBtnText"
+            defaultMessage="Zeige Frage"
+          ></FormattedMessage>
+        </Button>
+        <Text>{question}</Text>
+        <Spacer></Spacer>
         <Button colorScheme="blue" onClick={() => navigate("/")}>
           <FormattedMessage
             id="cancelBtnText"

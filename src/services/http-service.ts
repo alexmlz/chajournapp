@@ -35,6 +35,11 @@ class HttpService {
   get(id: number | string) {
     return apiClient.get(this.updateEndpoint + id + "/");
   }
+
+  getSingle() {
+    return apiClient.get(this.updateEndpoint);
+  }
+  
 }
 
 const create = (endpoint: string, updateEndpoint: string) =>

@@ -16,5 +16,6 @@
     "registerFreeText" : "Registrieren ist noch kostenlos",
     "loggedOutTex": "Du bist nicht mehr angemeldet",
     "logoutBtnText" : "Abmelden",
-    "lognBtnText": "Anmelden"
+    "lognBtnText": "Anmelden",
+    "questionBtnText" : "Zeige Frage"
 }
