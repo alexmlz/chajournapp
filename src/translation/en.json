@@ -17,7 +17,7 @@
     "loggedOutTex": "You are logged out",
     "logoutBtnText" : "Logout",
     "lognBtnText": "Login",
-    "questionBtnText" : "Show Question"
-
-
+    "questionBtnText" : "Show Question",
+    "createQuestionText": "Create new Question",
+    "regUserText": "Registered User"
 }
