@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useJournal from "../hooks/useJournal";
 import { Button, HStack, Spacer , Heading, Textarea, Text, SimpleGrid } from "@chakra-ui/react";
 import journalService, { Journal } from "../services/journal-service";
@@ -52,13 +52,16 @@ const JournalDetailPage = () => {
     let inputValue = e.target.value;
     setNewSubjectValue(inputValue);
   };
+  useEffect(() => {
+    handleQuestionBtnPress();
+  },[]);
   return (
     <>
     <SimpleGrid columns={{ sm: 1, md: 1, lg: 4, xl:4 }} spacing={5}>
       <Button size="xs" colorScheme="blue" onClick={() =>  handleQuestionBtnPress()}>
           <FormattedMessage
             id="questionBtnText"
-            defaultMessage="Zeige Frage"
+            defaultMessage="Neue Frage"
           ></FormattedMessage>
         </Button>
         <Text>{question}</Text>

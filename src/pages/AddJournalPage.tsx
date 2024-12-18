@@ -1,10 +1,15 @@
-import { Button, Input, Textarea, Text, HStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { Button, Input, Textarea, Text, HStack, SimpleGrid, Spacer } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import journalService from "../services/journal-service";
 import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import questionService from "../services/question-service";
+
 
 const AddJournalPage = () => {
+  const [newSubject, setNewSubject] = useState("");
+  const [newContent, setNewContent] = useState("");
+  const [question, setQuestion] = useState("");
   const navigate = useNavigate();
   const handleAddItem = () => {
     const newJournal = {
@@ -20,18 +25,34 @@ const AddJournalPage = () => {
       .catch((err) => {});
   };
 
-  const [newSubject, setNewSubject] = useState("");
-  const [newContent, setNewContent] = useState("");
+  const handleQuestionBtnPress = () => {
+    questionService.getSingle().then((res) => {
+      setQuestion(res.data.question)
+    });
+  };
+  useEffect(() => {
+    handleQuestionBtnPress();
+  },[]);
+
   return (
     <>
-      <HStack justifyContent={"flex-end"}>
+        <SimpleGrid columns={{ sm: 1, md: 1, lg: 4, xl:4 }} spacing={5}>
+      <Button size="xs" colorScheme="blue" onClick={() =>  handleQuestionBtnPress()}>
+          <FormattedMessage
+            id="questionBtnText"
+            defaultMessage="Neue Frage"
+          ></FormattedMessage>
+        </Button>
+        <Text>{question}</Text>
+        <Spacer></Spacer>
         <Button size="xs" colorScheme="blue" onClick={() => navigate("/")}>
           <FormattedMessage
             id="cancelBtnText"
             defaultMessage="Abbrechen"
           ></FormattedMessage>
         </Button>
-      </HStack>
+      </SimpleGrid>
+
 
       <Text mb="8px">
         {" "}
