@@ -34,7 +34,7 @@ function Login({ setCurrentUser }: any) {
             setInput={setLoginUser}
             errors={errors}
           />
-          <Button colorScheme="blue" type="submit" width={"full"}>
+          <Button size="xs" colorScheme="blue" type="submit" width={"full"}>
             <FormattedMessage
               id="sendBtnText"
               defaultMessage="Senden"

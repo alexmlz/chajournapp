@@ -22,7 +22,7 @@ const NavBar = () => {
         <Spacer />
 
         <ColorModeSwitch />
-        <Button onClick={() => onLogout()} colorScheme={"blue"}>
+        <Button size="xs" onClick={() => onLogout()} colorScheme={"blue"}>
           <FormattedMessage
             id="logoutBtnText"
             defaultMessage="Abmelden"

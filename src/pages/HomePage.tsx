@@ -17,7 +17,7 @@ const HomePage = () => {
               <FormattedMessage id="registerText"></FormattedMessage>
             </Text>
             <HStack justifyContent={"center"}>
-              <Button colorScheme="blue" onClick={() => setLogin(false)}>
+              <Button size="xs" colorScheme="blue" onClick={() => setLogin(false)}>
                 <FormattedMessage
                   id="registerBtnText"
                   defaultMessage="Registrieren"
@@ -32,7 +32,7 @@ const HomePage = () => {
               <FormattedMessage id="registerFreeText"></FormattedMessage>
             </Text>
             <HStack justifyContent={"center"}>
-              <Button colorScheme="blue" onClick={() => setLogin(true)}>
+              <Button size="xs" colorScheme="blue" onClick={() => setLogin(true)}>
                 <FormattedMessage
                   id="loginBtnText"
                   defaultMessage="Einloggen"

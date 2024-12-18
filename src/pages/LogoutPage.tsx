@@ -10,7 +10,7 @@ const LogoutPage = () => {
         <Text>
           <FormattedMessage id="loggedOutTex"></FormattedMessage>
         </Text>
-        <Button colorScheme="blue" onClick={() => navigate("/")}>
+        <Button size="xs" colorScheme="blue" onClick={() => navigate("/")}>
           <FormattedMessage
             id="loginBtnText"
             defaultMessage="Anmelden"

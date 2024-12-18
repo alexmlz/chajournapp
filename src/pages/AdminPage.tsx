@@ -58,28 +58,28 @@ const AdminPage = () => {
 
   return (
     <>
-    <VStack>
-<Text>Neue Frage</Text>
-      <Textarea value={newQuestion}
-        onChange={(e) => setNewQuestion(e.target.value)} placeholder="Enter Question" />
-      <Input value={newCategory}
-        onChange={(e) => setNewCategory(e.target.value)} placeholder="Enter Category" />
-      <Button colorScheme="blue" onClick={() => handleAddItem()}>
-      <Text>Speichern</Text>
+      <VStack>
+        <Text>Neue Frage</Text>
+        <Textarea value={newQuestion}
+          onChange={(e) => setNewQuestion(e.target.value)} placeholder="Enter Question" />
+        <Input value={newCategory}
+          onChange={(e) => setNewCategory(e.target.value)} placeholder="Enter Category" />
+        <Button size="xs" colorScheme="blue" onClick={() => handleAddItem()}>
+          <Text>Speichern</Text>
 
-      </Button>
+        </Button>
       </VStack>
       {questions.map((item) => (
         <HStack>
           <Text key={item.id}> {item.question} / {item.category}</Text>
-          <Button variant="outline" onClick={() => handleDelQuestion(item)}>
+          <Button size="xs" variant="outline" onClick={() => handleDelQuestion(item)}>
             Del
           </Button>
         </HStack>
 
       ))}
       <VStack>
-<Text>User</Text>
+        <Text>User</Text>
 
         <UnorderedList>
           {users.map((user: any) => (

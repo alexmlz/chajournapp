@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useJournal from "../hooks/useJournal";
-import { Button, HStack, Spacer , Heading, Textarea, Text } from "@chakra-ui/react";
+import { Button, HStack, Spacer , Heading, Textarea, Text, SimpleGrid } from "@chakra-ui/react";
 import journalService, { Journal } from "../services/journal-service";
 import questionService from "../services/question-service";
 import { useNavigate } from "react-router-dom";
@@ -54,8 +54,8 @@ const JournalDetailPage = () => {
   };
   return (
     <>
-      <HStack>
-      <Button colorScheme="blue" onClick={() =>  handleQuestionBtnPress()}>
+    <SimpleGrid columns={{ sm: 1, md: 1, lg: 4, xl:4 }} spacing={5}>
+      <Button size="xs" colorScheme="blue" onClick={() =>  handleQuestionBtnPress()}>
           <FormattedMessage
             id="questionBtnText"
             defaultMessage="Zeige Frage"
@@ -63,13 +63,13 @@ const JournalDetailPage = () => {
         </Button>
         <Text>{question}</Text>
         <Spacer></Spacer>
-        <Button colorScheme="blue" onClick={() => navigate("/")}>
+        <Button size="xs" colorScheme="blue" onClick={() => navigate("/")}>
           <FormattedMessage
             id="cancelBtnText"
             defaultMessage="Abbrechen"
           ></FormattedMessage>
         </Button>
-      </HStack>
+      </SimpleGrid>
       <Heading fontSize="2xl">
         <Textarea
           maxLength={50}
@@ -89,19 +89,19 @@ const JournalDetailPage = () => {
       ></Textarea>
 
       <HStack justifyContent={"flex-end"}>
-        <Button colorScheme="red" onClick={() => handleDeleteItem(journal)}>
+        <Button size="xs" colorScheme="red" onClick={() => handleDeleteItem(journal)}>
           <FormattedMessage
             id="deleteBtnText"
             defaultMessage="Löschen"
           ></FormattedMessage>
         </Button>
-        <Button colorScheme="blue" onClick={() => setEdit(!edit)}>
+        <Button size="xs" colorScheme="blue" onClick={() => setEdit(!edit)}>
           <FormattedMessage
             id="editBtnText"
             defaultMessage="Ändern"
           ></FormattedMessage>
         </Button>
-        <Button colorScheme="blue" onClick={() => handleUpdateItem()}>
+        <Button size="xs" colorScheme="blue" onClick={() => handleUpdateItem()}>
           <FormattedMessage
             id="saveBtnText"
             defaultMessage="Speichern"

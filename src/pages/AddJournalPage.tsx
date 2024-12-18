@@ -25,7 +25,7 @@ const AddJournalPage = () => {
   return (
     <>
       <HStack justifyContent={"flex-end"}>
-        <Button colorScheme="blue" onClick={() => navigate("/")}>
+        <Button size="xs" colorScheme="blue" onClick={() => navigate("/")}>
           <FormattedMessage
             id="cancelBtnText"
             defaultMessage="Abbrechen"
@@ -57,7 +57,7 @@ const AddJournalPage = () => {
         onChange={(e) => setNewContent(e.target.value)}
       ></Textarea>
       <HStack justifyContent="flex-end">
-        <Button colorScheme="blue" onClick={() => handleAddItem()}>
+        <Button size="xs" colorScheme="blue" onClick={() => handleAddItem()}>
           <FormattedMessage
             id="saveBtnText"
             defaultMessage="Speichern"

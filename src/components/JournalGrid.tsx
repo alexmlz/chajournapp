@@ -17,7 +17,7 @@ const JournalGrid = () => {
         <>
           {journals.length === 0 && <p>No item found</p>}
           <HStack justifyContent="flex-end">
-            <Button colorScheme="blue" onClick={() => navigate("/add/")}>
+            <Button size="xs" colorScheme="blue" onClick={() => navigate("/add/")}>
               <FormattedMessage
                 id="addBtnText"
                 defaultMessage="Hinzufügen"

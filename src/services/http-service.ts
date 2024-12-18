@@ -37,7 +37,7 @@ class HttpService {
   }
 
   getSingle() {
-    return apiClient.get(this.updateEndpoint);
+    return apiClient.get(this.updateEndpoint + "0/");
   }
   
 }
